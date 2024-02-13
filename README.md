@@ -12,11 +12,11 @@ Install Expense tracker client/frontend with yarn
   $ yarn dev
 ```
 
-Install ibs_backend
+Install api/backend
 
 ```bash
  $ git clone https://github.com/esc-saurav/expense_tracker_submit.git
- $ cd expense_tracker_client
+ $ cd expense_tracker_api
  $ python3 -m venv venv
  $ source venv/bin/activate
  $ pip install -r requirements.txt  
@@ -34,3 +34,7 @@ Install ibs_backend
 ```
 
 Open [http://localhost:3000] with your browser to see the result.
+```bash
+linkedIn: $ https://www.linkedin.com/in/esc-saurav/
+gmail:  $ sauravpanthiedu@gmail.com
+```
