@@ -3,7 +3,7 @@
 
 ## Installation
 
-Install Expense trakcer client/frontend with yarn
+Install Expense tracker client/frontend with yarn
 
 ```bash
   $ git clone https://github.com/esc-saurav/expense_tracker_submit.git
