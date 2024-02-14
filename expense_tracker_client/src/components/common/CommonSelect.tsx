@@ -21,10 +21,14 @@ const CommonSelect = ({
   const [open, setOpen] = useState<boolean>(false);
   const [selectedValue, setSelectedValue] = useState<Obj>({});
   console.log(selectedValue, "setSelectedValue");
+  console.log(selectedOption, "selectedOption");
 
   useEffect(() => {
-    setSelectedOption(selectedValue);
-  }, [selectedValue.id, selectedOption]);
+    if (selectedValue?.id) {
+      setSelectedOption(selectedValue);
+      setSelectedValue({});
+    }
+  }, [selectedValue?.id, selectedOption?.id]);
 
   return (
     <div className={`${className} h-full w-full font-medium`}>
