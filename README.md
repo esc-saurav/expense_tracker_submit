@@ -22,6 +22,7 @@ Install api/backend
  $ pip install -r requirements.txt  
  $ python manage.py migrate
  $ python manage.py createsuperuser
+ $ create a usernaame id: demo and password demo123
  $ python manage.py runserver
 
 
