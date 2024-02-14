@@ -34,8 +34,8 @@ const Sidebar = ({ isOpen, setIsopen }: Props) => {
         <div>
           <Image src={UserImage} alt="" />
           <div className="mt-2">
-            <p className="font-bold">demo</p>
-            <p className="text-sm font-semibold">demo@gmail.com</p>
+            <p className="whitespace-nowrap font-bold">Saurav Panthi</p>
+            <p className="text-sm font-semibold">escsaurav@gmail.com</p>
             <button
               onClick={() => {
                 Cookies.remove("access_token");

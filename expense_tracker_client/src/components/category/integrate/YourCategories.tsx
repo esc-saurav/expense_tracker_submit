@@ -21,8 +21,8 @@ const YourCategories = (props: Props) => {
             <div className="h-6 rounded-md bg-gradient-to-r from-[#DBDBDB]"></div>
             <div className="h-6 rounded-md bg-gradient-to-r from-[#DBDBDB]"></div>
           </div>
-        ) : (
-          Array.isArray(allCategoryData?.results) &&
+        ) : Array.isArray(allCategoryData?.results) &&
+          allCategoryData?.results?.length !== 0 ? (
           allCategoryData?.results?.map((item, idx) => {
             return (
               <div
@@ -41,6 +41,8 @@ const YourCategories = (props: Props) => {
               </div>
             );
           })
+        ) : (
+          "No Data avilable"
         )}
       </div>
     </>

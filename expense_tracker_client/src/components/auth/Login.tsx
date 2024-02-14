@@ -80,6 +80,8 @@ const Login = (props: Props) => {
             className="flex flex-col gap-6"
           >
             <div>
+              <p>@createdBY: escsaurav@gmail.com</p>
+              <p>Use superuser username and password</p>
               <p>username: demo</p>
               <p>Password: demo123</p>
             </div>

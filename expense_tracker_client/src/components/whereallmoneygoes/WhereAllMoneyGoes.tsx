@@ -17,8 +17,8 @@ const WhereAllMoneyGoes = (props: Props) => {
               <div className="h-6 rounded-md bg-gradient-to-r from-[#DBDBDB]"></div>
               <div className="h-6 rounded-md bg-gradient-to-r from-[#DBDBDB]"></div>
             </div>
-          ) : (
-            Array.isArray(expenseReportData) &&
+          ) : Array.isArray(expenseReportData) &&
+            expenseReportData.length !== 0 ? (
             expenseReportData?.map((item, idx) => {
               return (
                 <div key={idx}>
@@ -34,6 +34,8 @@ const WhereAllMoneyGoes = (props: Props) => {
                 </div>
               );
             })
+          ) : (
+            "NO Data Available"
           )}
         </div>
       </div>
