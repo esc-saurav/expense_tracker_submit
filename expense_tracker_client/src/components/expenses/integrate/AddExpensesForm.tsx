@@ -47,7 +47,9 @@ const AddExpensesForm = ({ setOpenExpenseModal }: Props) => {
     formState: { errors },
   } = useForm();
 
-  const [selectedcategory, setSelectedcategory] = useState<Obj>({});
+  const [selectedOption, setSelectedOption] = useState<Obj>({});
+  console.log(selectedOption);
+
   const { data: allCategoriesData } = useGetAllCategoryQuery({
     limit: 1000,
     offset: 0,
@@ -55,20 +57,18 @@ const AddExpensesForm = ({ setOpenExpenseModal }: Props) => {
   const [createExpense, { isLoading: isExpenseCreateLoading }] =
     useCreateExpenseMutation();
 
-  // console.log(selectedcategory, "selectedcategory");
-
   const onSubmit = async (data: any) => {
     try {
       const formData = new FormData();
       formData.append("amount", data?.amount);
       formData.append("description", data?.description);
-      formData.append("created_by", selectedcategory?.created_by?.id);
-      formData.append("categories", selectedcategory?.id);
+      formData.append("created_by", selectedOption?.created_by?.id);
+      formData.append("categories", selectedOption?.id);
       const response = await createExpense(formData);
       if (response) {
         //@ts-ignore
         if (response?.data) {
-          setSelectedcategory({});
+          setSelectedOption({});
           reset();
           setOpenExpenseModal(false);
           toast.success("expense created successfully");
@@ -102,8 +102,9 @@ const AddExpensesForm = ({ setOpenExpenseModal }: Props) => {
             <CommonSelect
               title="Select Category"
               className="mt-2"
+              selectedOption={selectedOption}
+              setSelectedOption={setSelectedOption}
               optiondata={allCategoriesData?.results ?? []}
-              selectedvalue={(value: Obj) => setSelectedcategory(value)}
             />
           </div>
         </div>

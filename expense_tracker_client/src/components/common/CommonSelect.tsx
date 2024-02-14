@@ -4,24 +4,26 @@ import React, { useEffect, useState } from "react";
 
 type Props = {
   optiondata: Obj[];
-  selectedvalue: (value: Obj) => void;
   className?: string;
   title: string;
+  setSelectedOption: React.Dispatch<React.SetStateAction<Obj>>;
+  selectedOption: Obj;
 };
 
 const CommonSelect = ({
   optiondata,
-  selectedvalue,
   className,
   title,
+  setSelectedOption,
+  selectedOption,
 }: Props) => {
   const [inputValue, setInputValue] = useState<string>("");
   const [open, setOpen] = useState<boolean>(false);
-  const [selectedOption, setSelectedOption] = useState<Obj>({});
+  const [selectedValue, setSelectedValue] = useState<Obj>({});
 
   useEffect(() => {
-    selectedvalue(selectedOption);
-  }, [selectedOption]);
+    setSelectedOption(selectedValue);
+  }, [selectedValue.id]);
 
   return (
     <div className={`${className} h-full w-full font-medium`}>
@@ -67,7 +69,7 @@ const CommonSelect = ({
                 key={item.id}
                 onClick={() => {
                   if (item.id !== selectedOption?.id) {
-                    setSelectedOption(item);
+                    setSelectedValue(item);
                     setOpen(false);
                     setInputValue("");
                   }
