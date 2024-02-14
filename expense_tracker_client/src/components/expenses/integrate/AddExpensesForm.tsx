@@ -101,7 +101,7 @@ const AddExpensesForm = ({ setOpenExpenseModal }: Props) => {
         </div>
         <div className="mt-4 flex justify-end md:mt-6">
           <CommonButton
-            disabled={selectedcategory?.created_by?.id === undefined}
+            disabled={selectedcategory?.id === undefined}
             className="w-fit !py-2 md:!py-2.5"
             title="Add Expenses"
             type="submit"
