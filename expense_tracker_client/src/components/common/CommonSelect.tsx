@@ -21,7 +21,7 @@ const CommonSelect = ({
 
   useEffect(() => {
     selectedvalue(selectedOption);
-  }, [selectedOption?.id]);
+  }, [selectedOption]);
 
   return (
     <div className={`${className} h-full w-full font-medium`}>

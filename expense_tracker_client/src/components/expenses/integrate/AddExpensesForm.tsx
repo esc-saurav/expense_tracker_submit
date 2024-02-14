@@ -17,7 +17,7 @@ const inputfieldDetails: inputField[] = [
     title: "Amount",
     name: "amount",
     placeholder: "Enter Amount",
-    type: "text",
+    type: "number",
     validation: {
       required: {
         value: true,
@@ -55,6 +55,8 @@ const AddExpensesForm = ({ setOpenExpenseModal }: Props) => {
   const [createExpense, { isLoading: isExpenseCreateLoading }] =
     useCreateExpenseMutation();
 
+  // console.log(selectedcategory, "selectedcategory");
+
   const onSubmit = async (data: any) => {
     try {
       const formData = new FormData();
@@ -64,9 +66,15 @@ const AddExpensesForm = ({ setOpenExpenseModal }: Props) => {
       formData.append("categories", selectedcategory?.id);
       const response = await createExpense(formData);
       if (response) {
-        reset();
-        setOpenExpenseModal(false);
-        toast.success("expense created successfully");
+        //@ts-ignore
+        if (response?.data) {
+          setSelectedcategory({});
+          reset();
+          setOpenExpenseModal(false);
+          toast.success("expense created successfully");
+        } else {
+          toast.error("expense creation failed");
+        }
       }
     } catch (err) {
       console.log(err);
@@ -101,7 +109,7 @@ const AddExpensesForm = ({ setOpenExpenseModal }: Props) => {
         </div>
         <div className="mt-4 flex justify-end md:mt-6">
           <CommonButton
-            disabled={selectedcategory?.id === undefined}
+            // disabled={selectedcategory?.id === undefined}
             className="w-fit !py-2 md:!py-2.5"
             title="Add Expenses"
             type="submit"

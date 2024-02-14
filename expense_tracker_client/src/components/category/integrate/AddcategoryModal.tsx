@@ -39,9 +39,14 @@ const AddcategoryModal = ({ setOpenCategoryModal }: Props) => {
     try {
       const response = await addCategory(data);
       if (response) {
-        reset();
-        setOpenCategoryModal(false);
-        toast.success("category created successfully");
+        //@ts-ignore
+        if (response?.data) {
+          reset();
+          setOpenCategoryModal(false);
+          toast.success("category created successfully");
+        } else {
+          toast.error("Category creation failed");
+        }
       }
     } catch (err) {
       console.log(err);

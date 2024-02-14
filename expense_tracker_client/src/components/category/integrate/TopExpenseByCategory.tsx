@@ -11,7 +11,7 @@ const TopExpenseByCategory = (props: Props) => {
       <div className="flex items-center justify-between">
         <p className="font-semibold">Top Expenses By Category</p>
       </div>
-      <div className="mt-5 flex max-h-[300px] w-full flex-col gap-y-6 overflow-y-auto">
+      <div className="mt-5 flex max-h-[300px] w-full flex-col gap-y-6 overflow-y-auto px-2">
         {isLoading ? (
           <div className="w-full animate-pulse space-y-4">
             <div className="h-6 rounded-md bg-gradient-to-r from-[#DBDBDB]"></div>
