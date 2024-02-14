@@ -17,8 +17,8 @@ Install api/backend
 ```bash
  $ git clone https://github.com/esc-saurav/expense_tracker_submit.git
  $ cd expense_tracker_api
- $ python3 -m venv venv
- $ source venv/bin/activate
+ $ for mac: python3 -m venv venv //// for windows: python -m venv venv
+ $ for mac: source venv/bin/activate //// for widows: ./venv/Scripts/active
  $ pip install -r requirements.txt  
  $ python manage.py migrate
  $ python manage.py createsuperuser
